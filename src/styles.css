@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5rem;
+}
+
+.category-cards {
+    padding-top: 3rem;
+}
+
+.card-color {
+    background-color: cornflowerblue;
+}
