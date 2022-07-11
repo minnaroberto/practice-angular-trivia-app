@@ -1,22 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .container {
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 5rem;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2rem;
 }
 
 .category-cards {
-    padding-top: 3rem;
+  padding-top: 3rem;
 }
 
 .card-color {
-    background-color: cornflowerblue;
+  background-color: cornflowerblue;
+}
+
+html {
+  font-family: -apple-system BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }

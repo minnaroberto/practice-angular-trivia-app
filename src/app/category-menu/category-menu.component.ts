@@ -4,21 +4,18 @@ import { Subscription } from 'rxjs';
 import { CategoryMenuService } from './category-menu.service';
 import { Category } from './category.model';
 
-
 @Component({
   selector: 'app-category-menu',
   templateUrl: './category-menu.component.html',
-  styleUrls: ['./category-menu.component.css']
+  styleUrls: ['./category-menu.component.css'],
 })
 export class CategoryMenuComponent implements OnInit {
   categories: Category[] = [];
 
-
-  constructor(private categoryService: CategoryMenuService) { }
+  constructor(private categoryService: CategoryMenuService) {}
 
   ngOnInit(): void {
-
-  this.categories = this.categoryService.getCategories();
+    this.categories = this.categoryService.getCategories();
+    console.log(this.categories);
   }
-
 }

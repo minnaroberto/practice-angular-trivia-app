@@ -1,0 +1,76 @@
+<h2
+  [style]="{
+    'font-weight': 'bold',
+    'text-align': 'center',
+    'padding-bottom': '3rem'
+  }"
+>
+  Quiz: {{ category.name }}
+</h2>
+<p-card
+  *ngFor="let questions of category.questions; let i = index"
+  [style]="{
+    'margin-bottom': '3em',
+    backgroundColor: 'var(--red-400)',
+    'font-weight': 'bold',
+    color: 'black'
+  }"
+>
+  {{ i + 1 }}. {{ questions.question }}
+  <button
+    pButton
+    type="button"
+    *ngFor="let options of questions.options; let j = index"
+    (click)="checkAnswer(options, questions.answer, i, j)"
+    [disabled]="answeredQuestions[i] === true || answeredQuestions[i] === false"
+    class="p-button-raised"
+    [style]="{
+      width: '100%',
+      'margin-top': '2rem',
+      padding: '1rem',
+      backgroundColor: 'white',
+      border: 'white',
+      color: 'black',
+      'font-weight': '600'
+    }"
+    label="{{ options }}"
+  ></button>
+  <div
+    *ngIf="answeredQuestions[i] === true || answeredQuestions[i] === false"
+    [ngStyle]="{
+      color:
+        answeredQuestions[i] === true ? 'var(--green-800)' : 'var(--blue-800)'
+    }"
+    [style]="{ 'padding-top': '1rem' }"
+  >
+    {{
+      answeredQuestions[i]
+        ? "Correct! - Answer: " + questions.answer
+        : "Incorrect - Answer: " + questions.answer
+    }}
+  </div>
+</p-card>
+<p-card
+  *ngIf="questionsAnswered === totalQuestions"
+  [style]="{
+    backgroundColor: 'var(--gray-400)',
+    padding: '0rem',
+    'font-weight': '700',
+    'margin-bottom': '2rem'
+  }"
+>
+  Results: {{ score }} / {{ totalQuestions }}
+</p-card>
+<button
+  pButton
+  type="button"
+  [style]="{
+    backgroundColor: 'var(--blue-800)',
+    border: 'var(--blue-800)',
+    'margin-bottom': '2rem',
+    float: 'right'
+  }"
+  [disabled]="questionsAnswered != totalQuestions"
+  label="Finsh Quiz"
+  [routerLink]="['/']"
+></button>

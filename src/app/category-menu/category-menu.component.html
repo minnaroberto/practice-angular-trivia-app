@@ -1,4 +1,52 @@
-
-<p-card  [style]="{'margin-bottom': '2em', backgroundColor:'var(--blue-200)'}" *ngFor="let category of categories">
-        {{category.name}}
-</p-card>
+<div
+  [style]="{
+    display: 'flex',
+    'align-items': 'center',
+    'flex-direction': 'column'
+  }"
+>
+  <h1>Welcome to Poke Trivia!</h1>
+  <h2>Pick a quiz to take:</h2>
+</div>
+<div
+  [style]="{
+    'background-image': 'url(/assets/images/pokeball.png)',
+    'background-size': 'contain',
+    'background-repeat': 'no-repeat',
+    'background-position': 'center'
+  }"
+>
+  <p-card
+    [style]="{
+      'margin-bottom': '2em',
+      backgroundColor: 'var(--red-400)',
+      color: 'black'
+    }"
+    *ngFor="let category of categories; let i = index"
+  >
+    <div
+      [style]="{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        'font-weight': '700'
+      }"
+    >
+      {{ category.name }}
+      <button
+        pButton
+        type="button"
+        class="startBtn"
+        [style]="{
+          'background-color': 'white',
+          border: 'white',
+          color: 'black',
+          'font-weight': '700'
+        }"
+        [routerLink]="['/quiz', i + 1]"
+      >
+        Start Quiz
+      </button>
+    </div>
+  </p-card>
+</div>

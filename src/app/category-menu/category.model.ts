@@ -1,7 +1,10 @@
+import { Questions } from '../questions/questions.model';
 export class Category {
-    public name: string;
-    
-    constructor(name: string) {
-        this.name = name;
-    }
+  public name: string;
+  public questions: Questions[];
+
+  constructor(name: string, questions: Questions[]) {
+    this.name = name;
+    this.questions = questions;
+  }
 }
